@@ -1,4 +1,3 @@
-from flask import appcontext_popped
 from utility import app
 from db import db
 db.init_app(app)
