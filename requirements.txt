@@ -3,5 +3,4 @@ Flask-RESTful
 Flask-JWT
 Flask-SQLALchemy
 uWSGI
-gunicorn
 psycopg2
