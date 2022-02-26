@@ -2,4 +2,4 @@ Flask
 Flask-RESTful
 Flask-JWT
 Flask-SQLALchemy
-uwsgi
+uWSGI
