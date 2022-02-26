@@ -10,15 +10,15 @@ from resources.item import Item,itemlist
 from resources.store import Store, Storelist
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] =os.environ.get('database.yml','sqlite:///data.db')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'jose'
 api = Api(app)
 
-uri = os.getenv("DATABASE_URL")  # or other relevant config var
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
+#uri = os.getenv("HEROKU_POSTGRESQL_CYAN_URL")  # or other relevant config var
+#if uri.startswith("postgres://"):
+ #   uri = uri.replace("postgres://", "postgresql://", 1)
 
 jwt = JWT(app, authenticate, identity) #/auth
 
