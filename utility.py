@@ -16,9 +16,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'jose'
 api = Api(app)
 
-uri = os.getenv("DATABASE_URL")  # or other relevant config var
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
+app.config = os.getenv("DATABASE_URL")  # or other relevant config var
+if app.config.startswith("postgres://"):
+    app.config = app.config.replace("postgres://", "postgresql://", 1)
 
 jwt = JWT(app, authenticate, identity) #/auth
 
